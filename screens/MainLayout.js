@@ -1,17 +1,20 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { Text } from "react-native";
+import Animated from "react-native-reanimated";
 
-const MainLayout = () => {
+const MainLayout = ({ drawerAnimationStyle }) => {
   return (
-    <View
+    <Animated.View
       style={{
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
+        backgroundColor: "white",
+        ...drawerAnimationStyle,
       }}
     >
       <Text>MavdvdvinLayfsdfsout</Text>
-    </View>
+    </Animated.View>
   );
 };
 
