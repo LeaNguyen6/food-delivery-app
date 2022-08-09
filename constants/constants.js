@@ -14,6 +14,7 @@ export const drawer_menu = {
     {
       icon: icons.home,
       label: screens.home,
+      path: screens.main_layout,
     },
     {
       icon: icons.wallet,
@@ -22,6 +23,7 @@ export const drawer_menu = {
     {
       icon: icons.notification,
       label: screens.notification,
+      path: screens.notification,
     },
     {
       icon: icons.favorite,

@@ -4,21 +4,25 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import { MainLayout } from "./screens";
 import CustomDrawer from "./navigation/CustomDrawer";
+import { store } from "./stores/store";
+import { Provider } from "react-redux";
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-        initialRouteName={"Home"}
-      >
-        <Stack.Screen name="Home" component={CustomDrawer} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}
+          initialRouteName={"Home"}
+        >
+          <Stack.Screen name="Home" component={CustomDrawer} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 };
 
