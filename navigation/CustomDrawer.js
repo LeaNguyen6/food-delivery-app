@@ -60,7 +60,7 @@ const CustomContentDrawer = ({ navigation }) => {
   const dispatch = useDispatch();
   const onSelectTab = (menuItem) => {
     dispatch(setSelectedTab(menuItem.label));
-    navigation.navigate(menuItem.path);
+    navigation.navigate(menuItem.path || menuItem.label);
   };
   return (
     <DrawerContentScrollView
