@@ -23,6 +23,7 @@ import { MainLayout, Notification } from "../screens";
 import Animated from "react-native-reanimated";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedTab } from "../stores/slices/tabSlice";
+import CustomTabs from "./CustomTabs";
 
 const Drawer = createDrawerNavigator();
 
@@ -166,15 +167,18 @@ const CustomDrawer = () => {
           return <CustomContentDrawer navigation={props.navigation} />;
         }}
       >
-        <Drawer.Screen name="MainLayout">
+        {/* <Drawer.Screen name="MainLayout">
           {(props) => (
             <MainLayout {...props} drawerAnimationStyle={animatedStyle} />
           )}
-        </Drawer.Screen>
+        </Drawer.Screen> */}
         <Drawer.Screen name="Notification">
           {(props) => (
             <Notification {...props} drawerAnimationStyle={animatedStyle} />
           )}
+        </Drawer.Screen>
+        <Drawer.Screen name="MainLayout" component={CustomTabs}>
+          {/* {(props) => } */}
         </Drawer.Screen>
       </Drawer.Navigator>
     </View>

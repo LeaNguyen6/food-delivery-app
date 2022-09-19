@@ -2,13 +2,16 @@ import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Animated from "react-native-reanimated";
 import { useSelector } from "react-redux";
-import { Header } from "../components";
 import { COLORS, dummyData, icons, SIZES } from "../constants";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { HeaderTab } from "../components/Header/HeaderTab";
+import { DrawerActions } from "@react-navigation/native";
 
 const MainLayout = ({ drawerAnimationStyle, navigation }) => {
-  const selectedTab = useSelector((state) => state.tab.selectedTab);
   const onOpenMenu = () => {
-    navigation.openDrawer();
+    // navigation.openDrawer();
+    // navigation.dispatch(DrawerActions.openDrawer());
+    navigation.navigate("Settings");
   };
   return (
     <Animated.View
@@ -21,7 +24,8 @@ const MainLayout = ({ drawerAnimationStyle, navigation }) => {
       }}
     >
       {/* Header */}
-      <Header
+      <HeaderTab onOpenMenu={onOpenMenu} />
+      {/* <Header
         containerStyle={{
           height: 50,
           paddingHorizontal: SIZES.padding,
@@ -41,10 +45,11 @@ const MainLayout = ({ drawerAnimationStyle, navigation }) => {
             />
           </TouchableOpacity>
         }
-      />
+      /> */}
       {/* Content */}
       <View style={{ flex: 1 }}>
-        <Text>MavdvdvinLayfsdfsout</Text>
+        <Text>ayfsdfsout</Text>
+        <MaterialCommunityIcons name="bell" />
       </View>
       {/* Footer */}
     </Animated.View>
@@ -53,19 +58,19 @@ const MainLayout = ({ drawerAnimationStyle, navigation }) => {
 
 export default MainLayout;
 
-const styles = StyleSheet.create({
-  menuButton: {
-    borderRadius: SIZES.radius,
-    alignItems: "center",
-    justifyContent: "center",
-    borderWidth: 1,
-    borderColor: COLORS.gray2,
-    width: 40,
-    height: 40,
-  },
-  profileImage: {
-    width: 40,
-    height: 40,
-    borderRadius: SIZES.radius,
-  },
-});
+// const styles = StyleSheet.create({
+//   menuButton: {
+//     borderRadius: SIZES.radius,
+//     alignItems: "center",
+//     justifyContent: "center",
+//     borderWidth: 1,
+//     borderColor: COLORS.gray2,
+//     width: 40,
+//     height: 40,
+//   },
+//   profileImage: {
+//     width: 40,
+//     height: 40,
+//     borderRadius: SIZES.radius,
+//   },
+// });
